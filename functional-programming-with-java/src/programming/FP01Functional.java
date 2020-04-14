@@ -18,11 +18,27 @@ public class FP01Functional {
 		printAllCoursesInListFunctional(courses);
 		printAllCoursesWithSpringInListFunctional(courses);
 		printAllCourseWithAtleast4LettersInListFunctional(courses);		
+		printAllEvenNumberSquareData(numbers);
 	}
 
 	
 
 	
+
+
+
+	private static void printAllEvenNumberSquareData(List<Integer> numbers) {
+		System.out.println("Printing all EVEN number with SQUARE VALUE...............");
+		numbers.stream()
+			   .filter(number->number%2==0)
+			   .map(number->number*number)
+			   .forEach(System.out::println);
+		
+	}
+
+
+
+
 
 
 
