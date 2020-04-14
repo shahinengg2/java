@@ -19,6 +19,7 @@ public class FP01Functional {
 		printAllCoursesWithSpringInListFunctional(courses);
 		printAllCourseWithAtleast4LettersInListFunctional(courses);		
 		printAllEvenNumberSquareData(numbers);
+		printAllOddNumberSquareData(numbers);
 	}
 
 	
@@ -31,6 +32,15 @@ public class FP01Functional {
 		System.out.println("Printing all EVEN number with SQUARE VALUE...............");
 		numbers.stream()
 			   .filter(number->number%2==0)
+			   .map(number->number*number)
+			   .forEach(System.out::println);
+		
+	}
+	
+	private static void printAllOddNumberSquareData(List<Integer> numbers) {
+		System.out.println("Printing all ODD number with SQUARE VALUE...............");
+		numbers.stream()
+			   .filter(number->number%2!=0)
 			   .map(number->number*number)
 			   .forEach(System.out::println);
 		
