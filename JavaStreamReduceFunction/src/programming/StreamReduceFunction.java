@@ -31,6 +31,18 @@ public class StreamReduceFunction {
 		
 		sum  = addListFunctional_Option8(numbers);
 		System.out.println("Integer.MAX_VALUE of addListFunctional_Option6: "+sum);
+		
+		sum = squareAddListFunctional_Option9(numbers);
+		System.out.println("squareAddListFunctional_Option9: "+sum);
+		
+		sum = evenNumberSquareAddListFunctional_Option10(numbers);
+		System.out.println("evenNumberSquareAddListFunctional_Option10: "+sum);
+		
+		sum = cubeAddListFunctional_Option11(numbers);
+		System.out.println("cubeAddListFunctional_Option11: "+sum);
+		
+		sum = oldNumberCubeAddListFunctional_Option12(numbers);
+		System.out.println("oldNumberCubeAddListFunctional_Option12: "+sum);
 	}
 
 	private static int sum(int aggregate, int nextNumber)
@@ -79,4 +91,25 @@ public class StreamReduceFunction {
 	{
 		return numbers.stream().reduce(Integer.MAX_VALUE,(x,y)-> x>y ? x:y);		
 	}
+	
+	private static int squareAddListFunctional_Option9(List<Integer> numbers) 
+	{
+		return numbers.stream().map(x->x*x).reduce(0,Integer::sum);		
+	}
+	
+	private static int evenNumberSquareAddListFunctional_Option10(List<Integer> numbers) 
+	{
+		return numbers.stream().filter(x->x%2==0).map(x->x*x).reduce(0,Integer::sum);		
+	}	
+	
+	private static int cubeAddListFunctional_Option11(List<Integer> numbers) 
+	{
+		return numbers.stream().map(x->x*x*x).reduce(0,Integer::sum);		
+	}
+	
+	private static int oldNumberCubeAddListFunctional_Option12(List<Integer> numbers) 
+	{
+		return numbers.stream().filter(x->x%2!=0).map(x->x*x*x).reduce(0,Integer::sum);		
+	}
+	
 }
