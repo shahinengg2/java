@@ -1,6 +1,7 @@
 package programming;
 
 import java.util.List;
+import java.util.function.BinaryOperator;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -59,7 +60,23 @@ public class StreamFunctionalInterface {
 			   .map(squareFunction2)
 			   .forEach(sysoutConsumer2);
 		
-
+		
+		
+		System.out.println("###############   Functional Interfaces implementation of reduce ##############");
+		int sum = numbers.stream().reduce(0, (x, y) -> x + y);
+		System.out.println("sum= "+sum);
+		
+		BinaryOperator<Integer> sumBinaryOperator = new BinaryOperator<Integer>() {
+			//(x, y) -> x + y;
+			@Override
+			public Integer apply(Integer a, Integer b) {
+				return a + b;
+			}
+		};		
+		
+		sum = numbers.stream().reduce(0, sumBinaryOperator);
+		System.out.println("sum= "+sum);
+			   
 	}
 
 }
